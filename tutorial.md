@@ -194,6 +194,15 @@ Tip: When looking for a specific column, click the Find column icon ( 33a3808286
 What are the top three countries from which sessions are originated?
 ![](https://cdn.qwiklabs.com/AozLCVR6k2yuhGP6RBEmPJmASKtb3zSKh%2BYIzWO6t3U%3D)  
 
+Answer: United States, India, United Kingdom
+
+What does the grey bar under totalTransactionRevenue represent?
+![](https://cdn.qwiklabs.com/Na%2B8%2FJzA5c5J%2Bw23pE6qnA1Z5GyvMLih1MeZs8IQOXE%3D)  
+Answer: Missing values for the totalTransactionRevenue field. This means that a lot of sessions in this sample did not generate revenue. Later, we will filter out these values so our final table only has customer transactions and associated revenue.
+
+What is the maximum timeOnSite in seconds, maximum pageviews, and maximum sessionQualityDim for the data sample? (Hint: Open the menu to the right of the timeOnSite column by clicking 93c14cbf1f70a561.pngthe Column Details menu)
+![](https://cdn.qwiklabs.com/HX6AKSqxJL4U1oX5Xs7%2FjlBSq1YoCdtXuJv0HvLDFvc%3D)  
+![](https://cdn.qwiklabs.com/Hp2p2%2FjlETLLD0Uz6Nurf8HhWCY3BhUlU4t7n357ymM%3D)  
 
 
 
@@ -207,6 +216,101 @@ What are the top three countries from which sessions are originated?
 Test Completed Task
 Click Check my progress to verify your performed task.
 Go back to the qwiklabs page and look for the **Check My Progress**
+To close the details window, click the Close Column Details button in the top right corner. Then repeat the process to view details for the pageviews and sessionQualityDim columns.
+![](https://cdn.qwiklabs.com/pnBT9jpB%2F%2F1fF5UgnwKlR960bjuSjmPxRGU9oWTkT8o%3D)  
+Answers:
+
+Maximum Time On Site: 5,561 seconds (or 92 minutes)
+Maximum Pageviews: 155 pages
+Maximum Session Quality Dimension: 97
+Note: Your answers for maximums may vary slightly due to the data sample used by Cloud Dataprep
+Note on averages: Use extra caution when performing aggregations like averages over a column of data. We need to first ensure fields like timeOnSIte are only counted once per session. We'll explore the uniqueness of visitor and session data in a later lab.
+Looking at the histogram for sessionQualityDim, are the data values evenly distributed?
+![](https://cdn.qwiklabs.com/%2BrVfeEfi6%2FzqkUWYRt7qoHSkydmPrXI1gW6s7JDePiQ%3D)  
+Answer: No, they are skewed to lower values (low quality sessions), which is expected.
+
+What is the date range for the dataset? Hint: Look at date field
+Answer: 8/1/2017 (one day of data)
+
+You might see a red bar under the productSKU column. If so, what might that mean?
+![](https://cdn.qwiklabs.com/eVIJPpwJeLxBZ4KPm1fEyqVhIZ4RvZ9egZiAfxG9KnM%3D)  
+Answer: A red bar indicates mismatched values. While sampling data, Cloud Dataprep attempts to automatically identify the type of each column. If you do not see a red bar for the productSKU column, then this means that Cloud Dataprep correctly identified the type for the column (i.e. the String type). If you do see a red bar, then this means that Cloud Dataprep found enough number values in its sampling to determine (incorrectly) that the type should be Integer. Cloud Dataprep also detected some non-integer values and therefore flagged those values as mismatched. In fact, the productSKU is not always an integer (for example, a correct value might be "GGOEGOCD078399"). So in this case, Cloud Dataprep incorrectly identified the column type: it should be a string, not an integer. You will fix that later in the this lab.
+
+Looking at the v2ProductName column, what are the most popular products?
+![](https://cdn.qwiklabs.com/TPc1D%2BwgQw1rOgTYjQFUXAPCCnTvszqXj0D0kps%2FgXs%3D)  
+Answer: ACME products
+
+Looking at the v2ProductCategory column, what are some of the most popular product categories?
+![](https://cdn.qwiklabs.com/YPCghv29ig%2BbTTu9kLaIMyEIagy79Vz3CSHH6n7CzyQ%3D)  
+Answers:
+
+Acme,
+(not set) (which means that some sessions are not associated with a category)
+Apparel
+are the most popular in our sample
+
+True or False? The most common productVariant is COLOR.
+Answer: False. It's (not set) because most products do not have variants (80%+)
+
+What are the two values in the type column?
+Answer: PAGE and EVENT
+
+A user can have many different interaction types when browsing your website. Types include recording session data when viewing a PAGE or a special EVENT (like "clicking on a product") and other types. Multiple hit types can be triggered at the exact same time so you will often filter on type to avoid double counting. We'll explore this more in a later analytics lab.
+
+What is the maximum productQuantity?
+Answer: 100 (your answer may vary)
+
+productQuantity indicates how many units of that product were added to cart. 100 means 100 units of a single product was added.
+
+What is the dominant currencyCode for transactions?
+Answer: USD (United States Dollar)
+
+Are there valid values for itemQuantity or itemRevenue?
+Answer: No, they are all NULL (or missing) values.
+
+Note: After exploration, in some datasets you may find duplicative or deprecated columns. We will be using productQuantity and productRevenue fields instead and dropping the itemQuantity and itemRevenue fields later in this lab to prevent confusion for our report users.
+
+What percentage of transactionId values are valid? What does this represent for our ecommerce dataset?
+![](https://cdn.qwiklabs.com/GC2hSwg3Od5mn30oPVKO3ntObn4hz78nk5d40yvzw6E%3D)  
+Answer: About 4.6% of transaction IDs have a valid value, which represents the average conversion rate of the website (4.6% of visitors transact).
+How many eCommerceAction_type values are there, and what is the most common value?
+Hint: count the distinct number of histogram columns.
+![](https://cdn.qwiklabs.com/xEi9Nhxr8C%2B%2FVpQ1UPlkEZwRE1onNpy1MzBv2dd%2BfVk%3D) 
+Answers: There are seven values found in our sample. The most common value is zero 0 which indicates that the type is unknown. This makes sense as the majority of the web sessions on our website will not perform any ecommerce actions as they are just browsing.
+
+Using the schema, what does eCommerceAction_type = 6 represent?
+Hint: Search for eCommerceAction type and read the description for the mapping
+Answer: 6 maps to "Completed purchase". Later in this lab we will ingest this mapping as part of our data pipeline.
+![](https://cdn.qwiklabs.com/mo%2BDN33yq0CAs0XYW23ziOq2ci1hF7EI3iz1WghQLuQ%3D)  
+Task 6. Cleaning the data
+In this task, you will clean the data by deleting unused columns, eliminating duplicates, creating calculated fields, and filtering out unwanted rows.
+
+Converting the productSKU column data type
+To ensure that the productSKU column type is a string data type, open the menu to the right of the productSKU column by clicking 93c14cbf1f70a561.png, then click Change type > String.
+![](https://cdn.qwiklabs.com/h9XRQZfWpeWFemjzgS90OJIJyC68beZ0TXHPNun6nqM%3D)  
+Verify that the first step in your data transformation pipeline was created by clicking on the Recipe icon:
+![](https://cdn.qwiklabs.com/QqCACDwXBSL6Va99bq%2FsnytTzLgd3%2BuHbPqxbDsTr68%3D)  
+Deleting unused columns
+As we mentioned earlier, we will be deleting the itemQuantity and itemRevenue columns as they only contain NULL values are not useful for the purpose of this lab.
+
+Open the menu for the itemQuantity column, and then click Delete.
+![](https://cdn.qwiklabs.com/D7Pv7GOsFWtLIVQK6TwOINOxqNTdx17IWNlhDO94XL0%3D)  
+Repeat the process to delete the itemRevenue column.
+
+Deduplicating rows
+Your team has informed you there may be duplicate session values included in the source dataset. Let's remove these with a new deduplicate step.
+
+Click the Filter rows icon in the toolbar, then click Remove duplicate rows.
+![](https://cdn.qwiklabs.com/M7zceE5c8t7br68Fn1RvH6fg3%2FKtNVJwcCVsa6Zuflo%3D)
+
+
+
+
+
+
+
+
+
 
 
 
