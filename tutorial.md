@@ -35,7 +35,8 @@ Note: If you already have your own personal GCP account or project, do not use i
 
 
 Note: You can view the menu with a list of GCP Products and Services by clicking the Navigation menu at the top-left, next to “Google Cloud Platform”.
-
+<walkthrough-spotlight-pointer spotlightId="devshell-web-preview-button"
+                               text="Open Web Preview">
 </walkthrough-spotlight-pointer>
 ![](https://cdn.qwiklabs.com/a6YnJv8GlGae4rnJIbjA27J8c7YApa%2B6noPFkkKxZjk%3D)
 
