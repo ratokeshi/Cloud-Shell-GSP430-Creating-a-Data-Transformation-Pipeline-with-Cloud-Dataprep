@@ -37,6 +37,7 @@ How to explore an ecommerce dataset and create a recurring data transformation p
 [Cloud OnAir: CE Chat: Wrangling Your Data with Cloud Dataprep](https://www.youtube.com/watch?v=GszTc7H5uHw)  
 
 
+### Get Started:
 To begin the tutorial in a Qwiklab open your Google Cloud Consoles as you normally would.
 1.  If you have issues with the console try using incognito mode and go to https://console.cloud.google.com/
 2.  If you are in the student session of the GCP Console, click the Cloud Shell icn on the top right that looks like this: ![alt text](https://walkthroughs.googleusercontent.com/tutorial/resources/cloud-shell-icon-v1.svg "Cloud Shell Icon on the top right of the GCP Console")
