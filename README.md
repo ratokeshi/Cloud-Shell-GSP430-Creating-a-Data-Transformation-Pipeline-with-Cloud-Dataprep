@@ -7,12 +7,12 @@ Cloud Dataprep by Trifacta is an intelligent data service for visually exploring
 This lab is also part of the [Data Engineering](https://google.qwiklabs.com/quests/25) Quest
 
 
-Overview
+##Overview
 Cloud Dataprep by Trifacta is an intelligent data service for visually exploring, cleaning, and preparing structured and unstructured data for analysis. In this lab you explore the Cloud Dataprep UI to build a data transformation pipeline that runs at a scheduled interval and outputs results into BigQuery.
 
 The dataset you'll use is an ecommerce dataset that has millions of Google Analytics session records for the Google Merchandise Store loaded into BigQuery. You have a copy of that dataset for this lab and will explore the available fields and row for insights.
 
-Objectives
+###Objectives
 In this lab, you learn how to perform these tasks:
 
 1. Connect BigQuery datasets to Cloud Dataprep.
@@ -20,16 +20,16 @@ In this lab, you learn how to perform these tasks:
 1. Create a data transformation pipeline with Cloud Dataprep.
 1. Schedule transformation jobs outputs to BigQuery.
 
-What you'll need
+###What you'll need
 The Google Chrome browser. Other browsers are currently not supported by Cloud Dataprep.
 
-What you'll learn
+###What you'll learn
 How to explore an ecommerce dataset and create a recurring data transformation pipeline with Cloud Dataprep.
 
-Here are some links: 
+###Here are some links: 
 [Cloud Dataprep by Trifacta](https://cloud.google.com/dataprep/) An intelligent cloud data service to visually explore, clean, and prepare data for analysis and machine learning.
 
-Here are videos for your use:  
+###Here are videos for your use:  
 [Cloud Dataprep on GCP](https://www.youtube.com/results?search_query=%22Google+Cloud+Platform%22+%22cloud+dataprep%22)  
 [Advanced Data Cleanup Techniques using Cloud Dataprep (Cloud Next '19)](https://www.youtube.com/watch?v=etgirLS6s_A)  
 [Data and Insight course with Google Cloud Platform | BigQuery | Big Data](https://www.youtube.com/watch?v=kNrnz5PWBuU)  
