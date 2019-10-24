@@ -27,10 +27,15 @@ What you'll learn
 How to explore an ecommerce dataset and create a recurring data transformation pipeline with Cloud Dataprep.
 
 Here are some links: 
-[Google Cloud Natural Language API](cloud.google.com/natural-language) and how to use to the Sentiment Analysis feature of the API.
+[Cloud Dataprep by Trifacta](https://cloud.google.com/dataprep/) An intelligent cloud data service to visually explore, clean, and prepare data for analysis and machine learning.
 
 Here are videos for your use:  
-[https://www.youtube.com/](From Template replace todo)
+[Cloud Dataprep on GCP](https://www.youtube.com/results?search_query=%22Google+Cloud+Platform%22+%22cloud+dataprep%22)
+[Advanced Data Cleanup Techniques using Cloud Dataprep (Cloud Next '19)](https://www.youtube.com/watch?v=etgirLS6s_A)
+[Data and Insight course with Google Cloud Platform | BigQuery | Big Data](https://www.youtube.com/watch?v=kNrnz5PWBuU)
+[Creating ETL Jobs with DataPrep - Take5](https://www.youtube.com/watch?v=DEh3pZIgJ9k)
+[Cloud OnAir: CE Chat: Wrangling Your Data with Cloud Dataprep](https://www.youtube.com/watch?v=GszTc7H5uHw)
+
 
 To begin the tutorial in a Qwiklab open your Google Cloud Consoles as you normally would.
 1.  If you have issues with the console try using incognito mode and go to https://console.cloud.google.com/
